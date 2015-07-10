@@ -3,4 +3,10 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="label_examples">Examples</string>
+    <string name="button_image_list">ListView</string>
+    <string name="button_image_grid">GridView</string>
+
+    <string name="title_activity_image_list_view">ImageListViewActivity</string>
 </resources>

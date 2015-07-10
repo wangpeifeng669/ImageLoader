@@ -20,6 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ImageListViewActivity"
+            android:label="@string/title_activity_image_list_view" />
     </application>
 
 </manifest>

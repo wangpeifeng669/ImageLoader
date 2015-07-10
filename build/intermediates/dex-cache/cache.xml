@@ -2,39 +2,39 @@
 <items version="2" >
 
     <item
-        jar="/Users/wangpeifeng/Desktop/peifeng/working/android/project/workspace/ImageLoaderDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jar="/Users/wangpeifeng/Desktop/peifeng/study/source/toy/android/ImageLoader/app/build/intermediates/exploded-aar/ImageLoader/Imageloadlib/unspecified/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="1a76d0923342af805603b5de316a7dac3592ad54">
+        <dex dex="/Users/wangpeifeng/Desktop/peifeng/study/source/toy/android/ImageLoader/app/build/intermediates/pre-dexed/debug/classes-06f44624c8a5fd4dd4695cae9e7da67456a00dfd.jar" />
+    </item>
+    <item
+        jar="/Users/wangpeifeng/Desktop/peifeng/study/source/toy/android/ImageLoader/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/Users/wangpeifeng/Desktop/peifeng/study/source/toy/android/ImageLoader/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-126fcd41635a9c0c5807136b1edb59440b7f3e23.jar" />
+    </item>
+    <item
+        jar="/Users/wangpeifeng/Desktop/peifeng/study/source/toy/android/ImageLoader/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.1"
         sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="/Users/wangpeifeng/Desktop/peifeng/working/android/project/workspace/ImageLoaderDemo/app/build/intermediates/pre-dexed/debug/classes-f6c7bebe538ae111b6d0eb7c119a6a22e472341d.jar" />
-    </item>
-    <item
-        jar="/Users/wangpeifeng/Desktop/peifeng/working/android/project/workspace/ImageLoaderDemo/app/build/intermediates/exploded-aar/ImageLoaderDemo/Imageloadlib/unspecified/classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="4d8425b89844ac443fb441fd42f7d1db93bf8d67">
-        <dex dex="/Users/wangpeifeng/Desktop/peifeng/working/android/project/workspace/ImageLoaderDemo/app/build/intermediates/pre-dexed/debug/classes-2a9f5be00fca14cad089056b3368a4b3d7a9f427.jar" />
-    </item>
-    <item
-        jar="/Users/wangpeifeng/Desktop/peifeng/working/android/project/workspace/ImageLoaderDemo/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="/Users/wangpeifeng/Desktop/peifeng/working/android/project/workspace/ImageLoaderDemo/app/build/intermediates/pre-dexed/debug/classes-f3bbe8e2104e25d9234c50c3d9ff1c75bdbd2cfc.jar" />
+        <dex dex="/Users/wangpeifeng/Desktop/peifeng/study/source/toy/android/ImageLoader/app/build/intermediates/pre-dexed/debug/classes-c1507af6d84038f713e7d00a97aa8a5a3a456215.jar" />
     </item>
     <item
         jar="/Users/wangpeifeng/Desktop/peifeng/working/android/adt-bundle-mac-x86_64-20131030/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.1"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="/Users/wangpeifeng/Desktop/peifeng/working/android/project/workspace/ImageLoaderDemo/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-ee0a41d3ee08cfb7879d1b577dfc1a1f807c69de.jar" />
+        <dex dex="/Users/wangpeifeng/Desktop/peifeng/study/source/toy/android/ImageLoader/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-ee0a41d3ee08cfb7879d1b577dfc1a1f807c69de.jar" />
     </item>
     <item
-        jar="/Users/wangpeifeng/Desktop/peifeng/working/android/project/workspace/ImageLoaderDemo/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jar="/Users/wangpeifeng/Desktop/peifeng/study/source/toy/android/ImageLoader/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.1"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="/Users/wangpeifeng/Desktop/peifeng/working/android/project/workspace/ImageLoaderDemo/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-a251729f840e4dbea9a0c468aac30bf7bb685ee5.jar" />
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/wangpeifeng/Desktop/peifeng/study/source/toy/android/ImageLoader/app/build/intermediates/pre-dexed/debug/classes-eb72afb022bba707bc211aaac44fb8a95620ff3c.jar" />
     </item>
 
 </items>

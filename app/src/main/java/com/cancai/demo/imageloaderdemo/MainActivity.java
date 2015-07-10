@@ -1,9 +1,11 @@
 package com.cancai.demo.imageloaderdemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.cancai.demo.imageloadlib.core.ImageLoader;
@@ -20,6 +22,15 @@ public class MainActivity extends ActionBarActivity {
         ImageLoader.getInstance().displayImage(ivPic, Constants.IMAGES[1]);
     }
 
+    public void onImageListClick(View view) {
+        Intent intent = new Intent(this, ImageListViewActivity.class);
+        startActivity(intent);
+    }
+
+    public void onImageGridClick(View view) {
+        Intent intent = new Intent(this, ImageListViewActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

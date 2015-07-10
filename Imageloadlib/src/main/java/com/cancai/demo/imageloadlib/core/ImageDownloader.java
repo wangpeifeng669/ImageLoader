@@ -53,8 +53,8 @@ class ImageDownloader {
             IoUtils.closeStream(imageStream);
             throw new IOException("Image request failed with response code " + conn.getResponseCode());
         }
-        final String contentLengthStr=conn.getHeaderField("content-length");
-        L.i(String.format("image size:%.3fM",Double.valueOf(contentLengthStr) / 1024 / 1024));
+        final String contentLengthStr = conn.getHeaderField("content-length");
+        L.d(String.format("image size stream:%.3fM", Double.valueOf(contentLengthStr) / 1024 / 1024));
         return BitmapFactory.decodeStream(new BufferedInputStream(imageStream, BUFFER_SIZE));
     }
 
