@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.v4.util.LruCache;
 import android.widget.ImageView;
 
+import com.cancai.demo.imageloadlib.core.viewcontainer.ImageViewContainer;
 import com.cancai.demo.imageloadlib.core.viewcontainer.ViewContainer;
 import com.cancai.demo.imageloadlib.utils.L;
 
@@ -88,7 +89,11 @@ public class ImageLoader {
             throw new RuntimeException(ERROR_IMAGELOADER_MUST_INIT);
         }
 
-        ViewContainer viewContainer = new ViewContainer(iv);
+        ImageViewContainer viewContainer = new ImageViewContainer(iv);
+        displayImage(viewContainer, url);
+    }
+
+    private void displayImage(ViewContainer viewContainer, String url) {
         mEngine.prepareDisplayTask(viewContainer, url);
 
         Bitmap bitmap = mMemoryCache.get(url);

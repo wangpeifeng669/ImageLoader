@@ -2,6 +2,8 @@ package com.cancai.demo.imageloadlib.core.viewcontainer;
 
 import android.view.View;
 
+import com.cancai.demo.imageloadlib.core.assist.ViewScaleType;
+
 /**
  * view 容器接口
  *
@@ -22,4 +24,10 @@ public interface ViewContainerInterface {
      * @return 该下载的唯一标识码
      */
     public int getId();
+
+    /**
+     * 获取图片显示类别，{@link ViewScaleType#FIT_INSIDE}或{@link ViewScaleType#CROP}
+     * @return 图片显示类别，{@link ViewScaleType#FIT_INSIDE}或{@link ViewScaleType#CROP}
+     */
+    public ViewScaleType getScaleType();
 }  

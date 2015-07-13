@@ -1,12 +1,17 @@
 package com.cancai.demo.imageloadlib.core;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.support.v4.util.LruCache;
+import android.view.View;
 
+import com.cancai.demo.imageloadlib.core.viewcontainer.ViewContainer;
+import com.cancai.demo.imageloadlib.utils.IoUtils;
 import com.cancai.demo.imageloadlib.utils.L;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -48,12 +53,15 @@ public class DownloadAndDisplayImageTask implements Runnable {
             L.i(String.format(LOG_WAITING_FOR_IMAGE_LOADED, mImageLoadingInfo.getImageUrl()));
         }
         urlLock.lock();
+        InputStream bitmapStream = null;
         try {
             checkTaskShouldCancel();
             Bitmap bitmap = mMemoryCache.get(mImageLoadingInfo.getImageUrl());
             if (bitmap == null) {
-                bitmap = mDownloader.getBitmapFromNetwork(mImageLoadingInfo.getImageUrl());
-                if (bitmap != null) {
+                bitmapStream = mDownloader.getStreamFromNetwork(mImageLoadingInfo.getImageUrl());
+                if (bitmapStream != null) {
+                    bitmap = OptimizationBitmap(bitmapStream, mImageLoadingInfo.getPicView());
+
                     L.i(String.format(LOG_CACHE_IMAGE_IN_MEMORY, mImageLoadingInfo.getImageUrl()));
                     mMemoryCache.put(mImageLoadingInfo.getImageUrl(), bitmap);
 
@@ -77,8 +85,68 @@ public class DownloadAndDisplayImageTask implements Runnable {
         } catch (Throwable e) {
             L.e(e);
         } finally {
+            IoUtils.closeStream(bitmapStream);
             urlLock.unlock();
         }
+    }
+
+    /**
+     * 优化图片，只保存需要显示的部分
+     *
+     * @param bitmapStream 图片流
+     * @param picView      图片显示控件
+     * @return 显示的图片位图
+     */
+    private Bitmap OptimizationBitmap(InputStream bitmapStream, ViewContainer picView) throws TaskCancelException, IOException {
+        View view = picView.getView();
+        if (view != null) {
+            int srcWidth = view.getWidth();
+            int srcHeight = view.getHeight();
+            L.d("src width:" + srcWidth + ",src height:" + srcHeight);
+            //测量流中图片长宽
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeStream(bitmapStream, null, options);
+
+            int sampleSize = 1;
+            switch (picView.getScaleType()) {
+                case FIT_INSIDE:
+                    sampleSize = Math.max(options.outWidth / srcWidth, options.outHeight / srcHeight);
+                    break;
+                case CROP:
+                    sampleSize = Math.min(options.outWidth / srcWidth, options.outHeight / srcHeight);
+                    break;
+            }
+
+            resetStream(bitmapStream);
+            return decodeSampledBitmap(bitmapStream, sampleSize);
+        } else {
+            throw new TaskCancelException();
+        }
+    }
+
+    /**
+     * 流被读取后必须重置才能重新读取
+     *
+     * @param imageStream 图片流
+     * @return 重置后的图片流
+     * @throws IOException
+     */
+    private InputStream resetStream(InputStream imageStream) throws IOException {
+        try {
+            imageStream.reset();
+        } catch (IOException e) {
+            IoUtils.closeStream(imageStream);
+            imageStream = mDownloader.getStreamFromNetwork(mImageLoadingInfo.getImageUrl());
+        }
+        return imageStream;
+    }
+
+    private Bitmap decodeSampledBitmap(InputStream bitmapStream, int sampleSize) {
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inSampleSize = sampleSize;
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeStream(bitmapStream, null, options);
     }
 
     /**

@@ -2,6 +2,8 @@ package com.cancai.demo.imageloadlib.core.viewcontainer;
 
 import android.view.View;
 
+import com.cancai.demo.imageloadlib.core.assist.ViewScaleType;
+
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
 
@@ -12,7 +14,7 @@ import java.lang.ref.WeakReference;
  * @create-time 15/7/8 10:07
  */
 public class ViewContainer implements ViewContainerInterface {
-    private Reference<View> mViewReference;
+    protected Reference<View> mViewReference;
 
     public ViewContainer(View view) {
         mViewReference = new WeakReference<>(view);
@@ -26,5 +28,10 @@ public class ViewContainer implements ViewContainerInterface {
     @Override
     public int getId() {
         return mViewReference.get() == null ? hashCode() : mViewReference.get().hashCode();
+    }
+
+    @Override
+    public ViewScaleType getScaleType() {
+        return ViewScaleType.FIT_INSIDE;
     }
 }

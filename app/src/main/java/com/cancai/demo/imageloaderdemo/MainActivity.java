@@ -19,7 +19,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         ImageView ivPic = (ImageView) this.findViewById(R.id.iv_pic);
-        ImageLoader.getInstance().displayImage(ivPic, Constants.IMAGES[1]);
+        ImageLoader.getInstance().displayImage(ivPic, Constants.IMAGES[21]);
     }
 
     public void onImageListClick(View view) {

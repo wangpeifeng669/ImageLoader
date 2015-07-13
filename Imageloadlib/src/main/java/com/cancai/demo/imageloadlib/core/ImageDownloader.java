@@ -1,8 +1,6 @@
 package com.cancai.demo.imageloadlib.core;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 
 import com.cancai.demo.imageloadlib.utils.IoUtils;
@@ -44,7 +42,7 @@ class ImageDownloader {
         mContext = context;
     }
 
-    public Bitmap getBitmapFromNetwork(String imageUri) throws IOException {
+    public InputStream getStreamFromNetwork(String imageUri) throws IOException {
         HttpURLConnection conn = createConnection(imageUri);
 
         InputStream imageStream;
@@ -54,8 +52,8 @@ class ImageDownloader {
             throw new IOException("Image request failed with response code " + conn.getResponseCode());
         }
         final String contentLengthStr = conn.getHeaderField("content-length");
-        L.d(String.format("image size stream:%.3fM", Double.valueOf(contentLengthStr) / 1024 / 1024));
-        return BitmapFactory.decodeStream(new BufferedInputStream(imageStream, BUFFER_SIZE));
+        L.d(String.format("image size stream:%1$.3fM[%2$s]", Double.valueOf(contentLengthStr) / 1024 / 1024,imageUri));
+        return new BufferedInputStream(imageStream, BUFFER_SIZE);
     }
 
     private HttpURLConnection createConnection(String url) throws IOException {
