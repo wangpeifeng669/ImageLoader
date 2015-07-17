@@ -3,6 +3,7 @@ package com.cancai.demo.imageloaderdemo;
 import android.app.Application;
 
 import com.cancai.demo.imageloadlib.core.ImageLoader;
+import com.cancai.demo.imageloadlib.core.ImageLoaderGlobalConfig;
 
 /**
  * 全局 Application
@@ -14,6 +15,7 @@ public class ImageLoadApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        ImageLoader.getInstance().init(this);
+        ImageLoaderGlobalConfig imageLoaderGlobalConfig = new ImageLoaderGlobalConfig(this);
+        ImageLoader.getInstance().init(this, imageLoaderGlobalConfig);
     }
 }

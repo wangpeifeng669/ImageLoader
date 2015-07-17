@@ -3,6 +3,7 @@ package com.cancai.demo.imageloadlib.core;
 import android.graphics.Bitmap;
 import android.support.v4.util.LruCache;
 
+import com.cancai.demo.imageloadlib.cache.disk.DiskCacheInterface;
 import com.cancai.demo.imageloadlib.core.viewcontainer.ViewContainer;
 
 import java.util.concurrent.locks.ReentrantLock;
@@ -19,6 +20,10 @@ public class ImageLoadingInfo {
     private String mImageUrl;
     private ImageDownloader mDownloader;
     private LruCache<String, Bitmap> mMemoryCache;
+    private DiskCacheInterface mDiskLruCache;
+    private boolean isCacheOnDisk;
+    private ImageLoaderGlobalConfig mImageLoaderGlobalConfig;
+
     /**
      * 对同一个 url 请求，请求中让其他相同 url 的请求等待
      */
@@ -70,5 +75,29 @@ public class ImageLoadingInfo {
 
     public void setReentrantLock(ReentrantLock reentrantLock) {
         mReentrantLock = reentrantLock;
+    }
+
+    public DiskCacheInterface getDiskLruCache() {
+        return mDiskLruCache;
+    }
+
+    public void setDiskLruCache(DiskCacheInterface diskLruCache) {
+        mDiskLruCache = diskLruCache;
+    }
+
+    public boolean isCacheOnDisk() {
+        return isCacheOnDisk;
+    }
+
+    public void setCacheOnDisk(boolean isCacheOnDisk) {
+        this.isCacheOnDisk = isCacheOnDisk;
+    }
+
+    public ImageLoaderGlobalConfig getImageLoaderGlobalConfig() {
+        return mImageLoaderGlobalConfig;
+    }
+
+    public void setImageLoaderGlobalConfig(ImageLoaderGlobalConfig imageLoaderGlobalConfig) {
+        mImageLoaderGlobalConfig = imageLoaderGlobalConfig;
     }
 }

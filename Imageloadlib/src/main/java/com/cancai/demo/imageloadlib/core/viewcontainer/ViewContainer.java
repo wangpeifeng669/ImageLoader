@@ -34,4 +34,6 @@ public class ViewContainer implements ViewContainerInterface {
     public ViewScaleType getScaleType() {
         return ViewScaleType.FIT_INSIDE;
     }
+
+
 }

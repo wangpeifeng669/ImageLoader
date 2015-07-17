@@ -8,7 +8,7 @@ import java.io.Closeable;
  * @author peter_wang
  * @create-time 15/7/2 15:10
  */
-public class IoUtils {
+public class IoUtil {
     /**
      * 关闭流
      *

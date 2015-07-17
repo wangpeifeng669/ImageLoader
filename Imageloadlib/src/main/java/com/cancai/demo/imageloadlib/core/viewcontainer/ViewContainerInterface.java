@@ -30,4 +30,4 @@ public interface ViewContainerInterface {
      * @return 图片显示类别，{@link ViewScaleType#FIT_INSIDE}或{@link ViewScaleType#CROP}
      */
     public ViewScaleType getScaleType();
-}  
+}
